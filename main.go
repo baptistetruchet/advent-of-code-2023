@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/baptistetruchet/aoc2023/utils"
+	"github.com/baptistetruchet/advent-of-code-2023/utils"
 	_ "github.com/samber/lo"
 )
 
