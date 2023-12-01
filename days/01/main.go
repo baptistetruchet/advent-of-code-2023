@@ -6,7 +6,6 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/baptistetruchet/advent-of-code-2023/parsing"
 	"github.com/baptistetruchet/advent-of-code-2023/utils"
 )
 
@@ -14,7 +13,7 @@ func SolveOne() {
 	filePath := os.Args[2]
 	lines := make(chan string)
 
-	go utils.ReadLines(filePath, lines, parsing.Identity)
+	go utils.ReadLines(filePath, lines, utils.Identity)
 
 	r := regexp.MustCompile(`\d`)
 
@@ -33,7 +32,7 @@ func SolveTwo() {
 	filePath := os.Args[2]
 	lines := make(chan string)
 
-	go utils.ReadLines(filePath, lines, parsing.Identity)
+	go utils.ReadLines(filePath, lines, utils.Identity)
 
 	mapWords := map[string]string{
 		"one":   "1",
