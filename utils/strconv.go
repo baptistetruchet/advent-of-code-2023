@@ -3,11 +3,17 @@ package utils
 import "strconv"
 
 func ParseInt(s string) (i int) {
-	i, _ = strconv.Atoi(s)
+	i, err := strconv.Atoi(s)
+	if err != nil {
+		panic(err)
+	}
 	return
 }
 
 func ParseFloat(s string) (f float64) {
-	f, _ = strconv.ParseFloat(s, 64)
+	f, err := strconv.ParseFloat(s, 64)
+	if err != nil {
+		panic(err)
+	}
 	return
 }
