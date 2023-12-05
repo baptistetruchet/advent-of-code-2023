@@ -46,10 +46,10 @@ func SolveTwo() {
 	c := make(map[int]int)
 
 	for line := range lines {
-		m := r1.FindAllStringSubmatch(line, -1)[0][1:]
+		m := utils.FindAllStringGroup(r1, line)[0]
 		g := utils.ParseInt(m[0])
-		w := lo.Map(r2.FindAllStringSubmatch(m[1], -1), func(a []string, i int) string { return a[0] })
-		d := lo.Map(r2.FindAllStringSubmatch(m[2], -1), func(a []string, i int) string { return a[0] })
+		w := lo.Flatten(utils.FindAllStringGroup(r2, m[1]))
+		d := lo.Flatten(utils.FindAllStringGroup(r2, m[2]))
 		n := len(lo.Intersect(w, d))
 
 		c[g] = c[g] + 1
