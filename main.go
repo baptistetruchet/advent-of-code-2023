@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	day "github.com/baptistetruchet/advent-of-code-2023/days/03"
+	day "github.com/baptistetruchet/advent-of-code-2023/days/04"
 )
 
 func main() {
