@@ -102,46 +102,34 @@ func findType2(h string) string {
 		m[string(c)] += 1
 	}
 	j := m["J"]
+	if j > 0 {
+		delete(m, "J")
+		max, l := 0, ""
+		for k, v := range m {
+			if v > max {
+				max = v
+				l = k
+			}
+		}
+		m[l] += j
+	}
 	v := lo.Values(m)
 	if lo.Contains(v, 5) {
 		return "7"
 	}
 	if lo.Contains(v, 4) {
-		if j > 0 {
-			return "7"
-		}
 		return "6"
 	}
 	if lo.Contains(v, 3) && lo.Contains(v, 2) {
-		if j > 0 {
-			return "7"
-		}
 		return "5"
 	}
 	if lo.Contains(v, 3) {
-		if j > 0 {
-			return "6"
-		}
 		return "4"
 	}
 	if lo.Contains(v, 2) && len(v) == 3 {
-		if j == 1 {
-			return "5"
-		}
-		if j == 2 {
-			return "6"
-		}
-
 		return "3"
 	}
 	if lo.Contains(v, 2) {
-		if j > 0 {
-			return "3"
-		}
-		return "2"
-	}
-
-	if j > 0 {
 		return "2"
 	}
 	return "1"
